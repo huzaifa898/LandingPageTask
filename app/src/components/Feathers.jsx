@@ -1,4 +1,5 @@
 import React from "react";
+import { FaCar, FaRobot, FaSearch, FaMobileAlt } from "react-icons/fa";
 
 const KeyFeatures = () => {
   const features = [
@@ -6,25 +7,25 @@ const KeyFeatures = () => {
       title: "Seamless Ride Integration",
       description:
         "Integration with a wider range of ride services to ensure users have access to nearby vehicles.",
-      icon: "🚗",
+      icon: <FaCar />,
     },
     {
       title: "AI Driven Smart Time & Price Comparisons",
       description:
         "Find the best deals across a wide range of transportation modes.",
-      icon: "🤖",
+      icon: <FaRobot />,
     },
     {
       title: "Unified Search",
       description:
         "Instantly view and compare transportation options from multiple providers in one place.",
-      icon: "🔍",
+      icon: <FaSearch />,
     },
     {
       title: "Unified Ride Management",
       description:
         "Users can manage all their ride-hailing accounts within the single platform.",
-      icon: "📱",
+      icon: <FaMobileAlt />,
     },
   ];
 
@@ -41,9 +42,11 @@ const KeyFeatures = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white shadow-md rounded-lg p-6 flex items-start gap-4 transition-transform transform hover:scale-105 hover:shadow-xl"
+              className="bg-white shadow-md rounded-lg p-6 flex items-start gap-4 transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-green-100"
             >
-              <div className="text-4xl">{feature.icon}</div>
+              <div className="text-4xl text-green-700 hover:text-green-900 transition-colors">
+                {feature.icon}
+              </div>
               <div>
                 <h3 className="text-xl font-bold text-green-700 mb-2">
                   {feature.title}
