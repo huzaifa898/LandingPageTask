@@ -49,25 +49,23 @@ const CablinkStory = () => {
         {/* Top Section */}
         <div className="flex flex-col lg:flex-row items-center lg:space-x-8">
           <div className="lg:w-1/2 text-center lg:text-left space-y-4">
-            <h2 className="text-4xl font-bold text-gray-800">Cablink Story</h2>
-            <p className="text-gray-600">
-              In a world filled with fragmented transportation options,
-              navigating through multiple platforms to find the best way to get
-              around is time-consuming and frustrating. Cablink transforms this
-              complexity into simplicity by unifying every mode of transportation
-              into a single, user-friendly platform.
-            </p>
-            <p className="text-gray-600">
-              Cablink is built to connect you to every mode of transport, whether
-              it's a TAXI, train, bus, bicycle, or e-scooter—all in one seamless
-              platform.
-            </p>
-            <p className="text-gray-600">
-              Our platform serves as more than an aggregator; Cablink is your
-              ultimate gateway to smarter, more affordable, and efficient travel,
-              making urban mobility accessible, sustainable, and tailored to your
-              lifestyle.
-            </p>
+            <h2 className="text-4xl font-bold text-gray-800" style={{ fontFamily: 'Nunito', fontSize: '40px', fontWeight: '700', lineHeight: '41.6px', textAlign: 'left' }}>
+              Cablink Story
+            </h2>
+            <div className="space-y-4 text-left">
+              <p className="text-gray-500 text-lg font-semibold">
+                In a world filled with fragmented transportation options,
+                navigating through multiple platforms to find the best way to get
+                around is time-consuming and frustrating. Cablink transforms this
+                complexity into simplicity by unifying every mode of transportation
+                into a single, user-friendly platform.
+              </p>
+              <p className="text-gray-500 text-lg font-semibold">
+                Cablink is built to connect you to every mode of transport, whether
+                it's a TAXI, train, bus, bicycle, or e-scooter—all in one seamless
+                platform.
+              </p>
+            </div>
           </div>
           <div className="lg:w-1/2">
             <img
@@ -75,46 +73,6 @@ const CablinkStory = () => {
               alt="Cablink illustration"
               className="w-full"
             />
-          </div>
-        </div>
-
-        {/* Slider Section */}
-        <div className="mt-12">
-          <h3 className="text-2xl font-semibold text-center mb-6 text-gray-800">
-            What Our Users Say
-          </h3>
-          <div className="relative flex items-center">
-            {/* Left Slider Button */}
-            <button
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-green-500 text-white p-2 rounded-full shadow-md hover:bg-green-600"
-              onClick={slideLeft}
-            >
-              &lt;
-            </button>
-
-            {/* Reviews Container */}
-            <div className="flex overflow-hidden w-full space-x-6">
-              {reviews.slice(currentIndex, currentIndex + 4).map((review, index) => (
-                <div
-                  key={index}
-                  className="bg-green-50 rounded-lg shadow-md p-6 text-center space-y-4 w-72"
-                >
-                  <div className="text-yellow-500 text-lg">★★★★★</div>
-                  <p className="text-gray-600">{`"${review.text}"`}</p>
-                  <span className="text-sm text-gray-500 font-medium">
-                    {review.source}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Right Slider Button */}
-            <button
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-green-500 text-white p-2 rounded-full shadow-md hover:bg-green-600"
-              onClick={slideRight}
-            >
-              &gt;
-            </button>
           </div>
         </div>
       </div>

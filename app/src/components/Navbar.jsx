@@ -1,16 +1,12 @@
 import React from "react";
+import logo from "../Images/logo.png"; // Replace with the actual path to your logo image
 
 const Navbar = () => {
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 ">
+    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
-          <div className="flex-shrink-0">
-            <a href="#home" className="text-lg font-bold text-black">
-              <span className="text-green-600">CAB</span>LINK
-            </a>
-          </div>
 
           {/* Links Section */}
           <div className="hidden md:flex space-x-8">
@@ -31,8 +27,8 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Language Selector */}
-          <div className="hidden md:flex items-center space-x-2">
+          {/* Language Selector and Download Button */}
+          <div className="hidden md:flex items-center space-x-8"> {/* Increased space to space-x-8 */}
             <button className="text-gray-700 hover:text-black font-medium flex items-center">
               English
               <svg
@@ -50,6 +46,14 @@ const Navbar = () => {
                 />
               </svg>
             </button>
+
+            {/* Download Button with margin-left */}
+            <a
+              href="#hello"
+              className="bg-green-500 gap-10px hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+            >
+              Download
+            </a>
           </div>
         </div>
       </div>

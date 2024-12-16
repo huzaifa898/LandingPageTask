@@ -1,77 +1,64 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import pic from "../Images/pic.jpg"; // Adjust the path based on your project structure
-import pic1 from "../Images/pic1.png";
+import hero from "../Images/hero.png"; // Replace with your hero image path
 
 const HeroSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.5 } // Trigger when 50% of the section is visible
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="bg-cover bg-center text-white h-screen py-12 md:py-20 relative overflow-hidden"
-      style={{ backgroundImage: `url(${pic})` }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center h-full">
-        {/* Text Section */}
-        <motion.div
-          className="md:w-1/2 text-center md:text-left"
-          initial={{ x: "-100vw", opacity: 0 }}
-          animate={isVisible ? { x: 0, opacity: 1 } : { x: "-100vw", opacity: 0 }}
-          transition={{ type: "spring", stiffness: 50, duration: 1.5 }}
-        >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Your license to a <span className="text-yellow-400">car-free</span> life
-          </h1>
-          <p className="text-lg md:text-xl mb-6">
-            Our app makes it easy to navigate cities by bus, train, foot, and bike
-          </p>
-          <a
-            href="#home"
-            className="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg"
-          >
-            Download App
-          </a>
-        </motion.div>
+    <section className="relative w-full h-screen overflow-hidden bg-gray-50">
+      {/* Animated Background Image */}
+      <motion.div
+        initial={{ y: "100%", scale: 1.2 }} // Start from bottom with slight zoom
+        whileInView={{ y: "0%", scale: 1 }} // Animate up with zoom effect
+        viewport={{ once: true }} // Trigger only once
+        transition={{ duration: 1.8, ease: "easeOut" }}
+        className="absolute inset-0 bg-cover bg-bottom"
+        style={{
+          backgroundImage: `url(${hero})`,
+          backgroundSize: "cover",
+          backgroundPosition: "bottom", // Align background to bottom
+        }}
+      ></motion.div>
 
-        {/* Image Section */}
-        <motion.div
-          className="md:w-1/2 flex justify-center md:justify-end"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={isVisible ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-          transition={{ type: "spring", stiffness: 50, damping: 10, duration: 1.5 }}
+      {/* Content Section - Positioned at Tower Start */}
+      <motion.div
+        className="absolute w-full text-center px-4 top-[9%] -translate-y-1/2 z-10" // Fine-tune top position
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+      >
+        {/* Heading */}
+        <motion.h1
+          className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-snug"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
         >
-          <img
-            src={pic1}
-            alt="App Preview"
-            className="max-w-full h-auto"
-          />
-        </motion.div>
-      </div>
+          All Your Rides, One App –{" "}
+          <span className="text-green-500">CABLINK</span> Does It All
+        </motion.h1>
 
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-40 h-40 bg-yellow-400 rounded-full blur-3xl opacity-20"></div>
-      <div className="absolute bottom-0 right-0 w-40 h-40 bg-yellow-400 rounded-full blur-3xl opacity-20"></div>
+        {/* Description */}
+        <motion.p
+          className="mt-4 text-lg md:text-xl text-gray-600"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.7 }}
+        >
+          Our app makes it easy to navigate cities by bus, train, foot, and bike.
+        </motion.p>
+
+        {/* Button */}
+        <motion.a
+          href="#download"
+          className="inline-block mt-6 px-6 py-3 bg-green-500 text-white text-lg font-medium rounded-lg shadow-lg hover:bg-green-600 transition-all duration-300"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
+          Download CABLINK
+        </motion.a>
+      </motion.div>
     </section>
   );
 };

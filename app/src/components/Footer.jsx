@@ -76,16 +76,16 @@ const FooterSection = () => {
             <ul className="space-y-2">
               <li>info@cablink.app</li>
               <li className="flex space-x-3">
-                <a href="#" aria-label="Instagram">
+                <a href="#inta" aria-label="Instagram">
                   <FaInstagram className="w-5 h-5 text-gray-700 hover:text-green-600" />
                 </a>
-                <a href="#" aria-label="Twitter">
+                <a href="#twitter" aria-label="Twitter">
                   <FaTwitter className="w-5 h-5 text-gray-700 hover:text-green-600" />
                 </a>
-                <a href="#" aria-label="Facebook">
+                <a href="#facebook" aria-label="Facebook">
                   <FaFacebook className="w-5 h-5 text-gray-700 hover:text-green-600" />
                 </a>
-                <a href="#" aria-label="LinkedIn">
+                <a href="#linkden" aria-label="LinkedIn">
                   <FaLinkedin className="w-5 h-5 text-gray-700 hover:text-green-600" />
                 </a>
               </li>
